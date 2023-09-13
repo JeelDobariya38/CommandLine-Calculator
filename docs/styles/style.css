@@ -1,0 +1,38 @@
+body{
+    background-color: #8ecae6;
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav {
+    background: #000;
+    display: flex;
+}
+
+.content{
+    margin: 15px;
+}
+
+a {
+    color: whitesmoke;
+    margin: 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #219ebc;
+}
+
+button {
+    padding: 20px;
+    color: white;
+    background-color: #219ebc;
+    border: 40px;
+    border-radius: 10px;
+    font-family: "Arial";
+    transition: border-radius 0.3s ease-in-out;
+}
+
+button:hover {
+    border-radius: 40px;
+}
