@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Simple-Calculator"
-version = "1.0.0"
+version = "0.2.0"
 description = "It a basic python gui-application that help you with simple calculation."
 authors = ["Jeel Dobariya <dobariyaj34@gmail.com>"]
 license = "MIT"
