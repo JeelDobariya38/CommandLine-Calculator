@@ -1,5 +1,7 @@
 # Simple Command-Line Calculator
 
+[![Pytest-Tests](https://github.com/JeelDobariya38/Simple-Calculator/actions/workflows/Run-Tests.yaml/badge.svg)](https://github.com/JeelDobariya38/Simple-Calculator/actions/workflows/Run-Tests.yaml)
+
 Welcome to the Simple Command-Line Calculator! This Python-based project is designed to help you with basic calculations through a command-line interface.
 
 ## Features
@@ -8,7 +10,7 @@ Welcome to the Simple Command-Line Calculator! This Python-based project is desi
 - **Exit Functionality:** Type "quit" or "exit" to exit the calculator at any time.
 
 ## Getting Started
-1. Ensure you have Python 3.12 or above installed on your machine.
+1. Ensure you have Python 3.9 or above installed on your machine.
 2. Clone this repository:
 
     ```bash
