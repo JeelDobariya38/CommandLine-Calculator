@@ -11,7 +11,7 @@ document.getElementById("latestdownloadButton").addEventListener("click", functi
                 }
             }
             else {
-                for (const asset of assets) {
+                for (var asset of assets) {
                     if (asset.name.endsWith(".zip")) {
                         window.location.href = asset.browser_download_url;
                         break;
