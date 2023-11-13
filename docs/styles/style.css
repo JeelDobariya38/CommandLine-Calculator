@@ -10,7 +10,7 @@ body{
 }
 
 .content{
-    margin: 15px;
+    margin: 30px 15px;
 }
 
 a {
@@ -35,4 +35,31 @@ button {
 
 button:hover {
     border-radius: 40px;
+}
+
+.other-version {
+    margin: 30px 15px;
+}
+
+.release {
+    color: white;
+    background-color: #211e1e;
+    padding: 5px 10px;
+    border: 6px solid #000;
+    border-radius: 20px;
+}
+
+.release .info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.release .info div {
+    margin: 5px;
+}
+
+.release a {
+    color: rgb(36, 118, 185);
+    margin: 0px;
+    text-decoration: dashed;
 }
