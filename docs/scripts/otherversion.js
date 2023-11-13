@@ -18,8 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             for (var release of releases) {
                 if (!release.draft) {
-                    const convertedBody = marked(release.body);
-                    const releaseElement = document.createElement('div');
+                    var convertedBody = marked(release.body);
+                    var downloadlink = '#'
+                    for (var asset of release.assets) {
+                        if (asset.name.endsWith(".zip")) {
+                            downloadlink = asset.browser_download_url;
+                            break;
+                        }
+                    }
+                    var releaseElement = document.createElement('div');
                     releaseElement.classList.add('release');
                     releaseElement.innerHTML = `
                         <h1>${release.name}</h1>
@@ -28,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <div><b>Published At: <span class="published-at">${release.published_at}</span></b></div>
                         </div>
                         <p>${convertedBody}</p>
-                        <a href="${release.html_url}" target="_blank"><button>Download</button></a>
+                        <a href="${downloadlink}" target="_blank"><button>Download</button></a>
                     `;
                     otherReleasesContainer.appendChild(releaseElement);
                 }

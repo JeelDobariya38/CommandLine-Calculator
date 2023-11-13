@@ -63,3 +63,9 @@ button:hover {
     margin: 0px;
     text-decoration: dashed;
 }
+
+.notes a {
+    color: rgb(36, 118, 185);
+    margin: 0px;
+    text-decoration: dashed;
+}
