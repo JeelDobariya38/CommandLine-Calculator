@@ -1,4 +1,4 @@
-from App.historytracker import History
+from src.App.historytracker import History
 
 def test_append_operation():
     history = History()

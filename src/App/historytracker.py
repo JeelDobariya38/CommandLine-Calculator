@@ -4,7 +4,7 @@ class History:
 
     def append_operation(self, expression: str, result: str):
         self.history.append(expression + " -> " + result)
-    
+
     def __repr__(self):
         string = ""
         for item in self.history:
