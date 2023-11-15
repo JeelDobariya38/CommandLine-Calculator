@@ -1,25 +1,40 @@
+import string
+
 def welcome():
     print("WELCOME TO COMMANDLINE CALCULATOR!!")
     print()
 
 
-def isvalid(x):
-    valid = True
-    return valid
+def isvalid(inp):
+    number = list(string.digits)
+    operator = "+ - * / % = > <".split(" ")
+    valid_char = number + operator + [" "]
+    for char in inp:
+        if char not in valid_char:
+            return False
+    else:
+        return True
 
 
 def main():
     while True:
-        x = input(">> ")
-
-        if x == "":
+        inp = input(">> ").split()
+    
+        if inp == "":
             continue
 
-        if x == "quit" or x == "exit":
+        if inp == "quit" or inp == "exit":
             return 0
 
-        if isvalid(x):
-            print(eval(x))
+        valid = isvalid(inp)
+
+        if valid:
+            result = eval(inp)
+            print(result)
+            continue
+        
+        if not valid:
+            print("Invalid Input!!")
 
 
 def onquit():
