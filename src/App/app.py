@@ -5,15 +5,9 @@ def welcome():
     print()
 
 
-def isvalid(inp):
-    number = list(string.digits)
-    operator = "+ - * / % = > <".split(" ")
-    valid_char = number + operator + [" "]
-    for char in inp:
-        if char not in valid_char:
-            return False
-    else:
-        return True
+def is_valid(inp):
+    valid_char = set(string.digits + "+-*/%=>< ")
+    return all(char in valid_char for char in inp)
 
 
 def main():
