@@ -28,7 +28,7 @@ def main():
         if inp == "quit" or inp == "exit":
             return 0
 
-        valid = isvalid(inp)
+        valid = is_valid(inp)
 
         if valid:
             result = eval(inp)
