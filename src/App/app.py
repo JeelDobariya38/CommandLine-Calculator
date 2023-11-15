@@ -1,4 +1,7 @@
+from .historytracker import History
+
 import string
+
 
 def welcome():
     print("WELCOME TO COMMANDLINE CALCULATOR!!")
@@ -36,7 +39,20 @@ def is_matching(opening, closing):
            (opening == '[' and closing == ']')
 
 
+def print_help_msg():
+    print("Simple Calculator Help:")
+    print("Type a mathematical expression to perform calculations.")
+    print("Commands:")
+    print("  - \"help\": Display this help message.")
+    print("  - \"show\" or \"history\": Show calculation history.")
+    print("  - \"quit\" or \"exit\": Exit the calculator.")
+    print("Example expressions: 3 + 5, (2 * 4) / 2")
+    print()
+
+
 def main():
+    history = History()
+    
     while True:
         inp = input(">> ").strip()
     
@@ -45,11 +61,20 @@ def main():
 
         if inp == "quit" or inp == "exit":
             return 0
+        
+        if inp == "help":
+            print_help_msg()
+            continue
+        
+        if inp == "show" or inp == "history":
+            print(history)
+            continue
 
         valid = is_valid(inp)
 
         if valid:
-            result = eval(inp)
+            result = str(eval(inp))
+            history.append_operation(inp, result)
             print(result)
             continue
         
