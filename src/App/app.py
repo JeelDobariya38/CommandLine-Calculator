@@ -6,8 +6,16 @@ def welcome():
 
 
 def is_valid(inp):
-    valid_char = set(string.digits + "+-*/%=>< ")
-    return all(char in valid_char for char in inp)
+    valid_char = set(string.digits + "+-*/%=><(). ")
+    operators = set("+-*/%=<>")
+    for i, char in enumerate(inp):
+        if char not in valid_char:
+            return False
+        if i == 0 and char in operators:
+            return False  # Disallow starting with an operator
+        if i == len(inp) - 1 and char in operators:
+            return False  # Disallow ending with an operator
+    return True
 
 
 def main():

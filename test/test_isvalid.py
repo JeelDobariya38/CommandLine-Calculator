@@ -3,7 +3,7 @@ from App.app import is_valid
 def test_valid_input():
     assert is_valid("3 + 5") == True
     assert is_valid("7 % 3 = 1") == True
-    assert is_valid("x > 5") == True
+    assert is_valid("x > 5") == False
 
 def test_invalid_input():
     assert is_valid("2a + b") == False
@@ -40,7 +40,7 @@ def test_starting_with_operator():
 def test_valid_input_with_eval():
     assert is_valid("3 + 5") == True
     assert is_valid("7 % 3 = 1") == True
-    assert is_valid("x > 5") == True
+    assert is_valid("x > 5") == False
 
 def test_invalid_input_with_eval():
     assert is_valid("2a + b") == False
