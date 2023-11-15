@@ -1,4 +1,7 @@
+from .historytracker import History
+
 import string
+
 
 def welcome():
     print("WELCOME TO COMMANDLINE CALCULATOR!!")
@@ -37,6 +40,8 @@ def is_matching(opening, closing):
 
 
 def main():
+    history = History()
+    
     while True:
         inp = input(">> ").strip()
     
@@ -50,6 +55,7 @@ def main():
 
         if valid:
             result = eval(inp)
+            history.append_operation(inp, result)
             print(result)
             continue
         
