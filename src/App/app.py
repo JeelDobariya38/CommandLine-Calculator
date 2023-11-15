@@ -1,25 +1,60 @@
+import string
+
 def welcome():
     print("WELCOME TO COMMANDLINE CALCULATOR!!")
     print()
 
 
-def isvalid(x):
-    valid = True
-    return valid
+def is_valid(inp):
+    if not inp:
+        return True
+
+    valid_char = set(string.digits + "+-*/=><(). ")
+    operators = set("+-*/%=<>")
+    stack = []
+
+    for i, char in enumerate(inp):
+        if char not in valid_char:
+            return False
+        if i == 0 and char in operators:
+            return False  # Disallow starting with an operator
+
+        if char in "({[":
+            stack.append(char)
+
+        elif char in ")}]":
+            if not stack or not is_matching(stack.pop(), char):
+                return False
+
+    # Ensure the stack is empty at the end, indicating balanced brackets
+    return not stack and inp[-1] not in operators if inp else False
+
+
+def is_matching(opening, closing):
+    return (opening == '(' and closing == ')') or \
+           (opening == '{' and closing == '}') or \
+           (opening == '[' and closing == ']')
 
 
 def main():
     while True:
-        x = input(">> ")
-
-        if x == "":
+        inp = input(">> ").strip()
+    
+        if inp == "":
             continue
 
-        if x == "quit" or x == "exit":
+        if inp == "quit" or inp == "exit":
             return 0
 
-        if isvalid(x):
-            print(eval(x))
+        valid = is_valid(inp)
+
+        if valid:
+            result = eval(inp)
+            print(result)
+            continue
+        
+        if not valid:
+            print("Invalid Input!!")
 
 
 def onquit():
