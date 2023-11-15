@@ -1,5 +1,5 @@
 import pytest
-from App.app import is_valid
+from src.App.app import is_valid
 
 @pytest.mark.parametrize("expression, expected_result", [
     ("3 + 5", True),
