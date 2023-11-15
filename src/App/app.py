@@ -6,21 +6,39 @@ def welcome():
 
 
 def is_valid(inp):
-    valid_char = set(string.digits + "+-*/%=><(). ")
+    if not inp:
+        return True
+
+    valid_char = set(string.digits + "+-*/=><(). ")
     operators = set("+-*/%=<>")
+    stack = []
+
     for i, char in enumerate(inp):
         if char not in valid_char:
             return False
         if i == 0 and char in operators:
             return False  # Disallow starting with an operator
-        if i == len(inp) - 1 and char in operators:
-            return False  # Disallow ending with an operator
-    return True
+
+        if char in "({[":
+            stack.append(char)
+
+        elif char in ")}]":
+            if not stack or not is_matching(stack.pop(), char):
+                return False
+
+    # Ensure the stack is empty at the end, indicating balanced brackets
+    return not stack and inp[-1] not in operators if inp else False
+
+
+def is_matching(opening, closing):
+    return (opening == '(' and closing == ')') or \
+           (opening == '{' and closing == '}') or \
+           (opening == '[' and closing == ']')
 
 
 def main():
     while True:
-        inp = input(">> ").split()
+        inp = input(">> ").strip()
     
         if inp == "":
             continue
